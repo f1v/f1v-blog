@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Blog Starter`,
-    description: `A Blog starter`,
-    author: `Boy with Silver Wings`,
-    authorTagline: 'Engineer. Driven by Passion',
+    title: `F1V Blog`,
+    description: `Company tech blog`,
+    author: `F1V Devs`,
+    authorTagline: 'Engineering driven by passion',
     social: {
-      twitter: `agneymenon`,
+      twitter: `f1v`,
     },
   },
   plugins: [
@@ -67,7 +67,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/f1v-logo.png`, // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline',

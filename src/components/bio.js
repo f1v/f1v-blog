@@ -57,15 +57,15 @@ const TwitterIcon = styled.img`
 const Bio = () => (
   <StaticQuery
     query={bioQuery}
-    render={data => {
-      const { author, authorTagline, social } = data.site.siteMetadata;
+    render={(data) => {
+      const { author, authorTagline } = data.site.siteMetadata;
       return (
         <Container>
           <TextContainer>
             <Name>{author}</Name>
             <TagLine>{authorTagline}</TagLine>
             <a
-              href={`https://twitter.com/${social.twitter}`}
+              href={`https://f1v.co`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -83,7 +83,7 @@ const Bio = () => (
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/icon.png/" }) {
+    avatar: file(absolutePath: { regex: "/f1v-logo.png/" }) {
       childImageSharp {
         fixed(width: 70, height: 70) {
           ...GatsbyImageSharpFixed
