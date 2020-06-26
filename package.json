@@ -1,9 +1,35 @@
 {
-  "name": "gatsby-minimal-blog",
-  "private": true,
-  "description": "A simple minimal starter to get up and developing quickly with Gatsby",
+  "name": "f1v-blog",
+  "description": "Company tech blog",
   "version": "0.1.0",
-  "author": "Boy with Silver Wings <agney@outlook.in>",
+  "author": "f1v",
+  "keywords": [
+    "gatsby",
+    "styled-components",
+    "blog",
+    "minimal"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agneym/gatsby-blog-starter"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "gatsby": "^2.23.3",
     "gatsby-image": "^2.4.7",
@@ -33,41 +59,10 @@
     "styled-theming": "^2.2.0",
     "typeface-oswald": "^1.1.4"
   },
-  "keywords": [
-    "gatsby",
-    "styled-components",
-    "blog",
-    "minimal"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
-  },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.10",
     "prettier": "^2.0.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agneym/gatsby-blog-starter"
-  },
-  "bugs": {
-    "url": "https://github.com/agneym/gatsby-blog-starter/issues"
   }
 }
