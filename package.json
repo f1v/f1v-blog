@@ -16,8 +16,8 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop"
+    "clean": "gatsby clean",
+    "start": "gatsby develop -o"
   },
   "husky": {
     "hooks": {
