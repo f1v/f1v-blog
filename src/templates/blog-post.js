@@ -10,7 +10,6 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
-    const author = this.props.data.site.siteMetadata.author;
     const { previous, next } = this.props.pageContext;
 
     return (
@@ -24,24 +23,29 @@ class BlogPostTemplate extends React.Component {
                 color: rgba(0, 0, 0, 0.8);
               `}
             >
-              <span>Posted on {post.frontmatter.date}</span>
+              <span>
+                Posted on {post.frontmatter.date} by {post.frontmatter.author}
+              </span>
               <span>&nbsp; - &nbsp;</span>
               <span>{post.fields.readingTime.text}</span>
             </sub>
           </Header>
+
           <div
             css={`
               margin: 5rem 0;
             `}
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
+
           <Share
             post={{
               title: post.frontmatter.title,
               excerpt: post.excerpt,
-              author: author,
+              author: post.frontmatter.author,
             }}
           />
+
           <LinkList>
             <li>
               {previous && (
@@ -86,6 +90,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        author
       }
     }
   }

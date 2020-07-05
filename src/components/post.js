@@ -29,7 +29,7 @@ const Post = ({ node }) => (
     <Container>
       <Title>{node.frontmatter.title}</Title>
       <sub>
-        <span>on {node.frontmatter.date}</span>
+        <span>{node.frontmatter.date}</span>
         <span>&nbsp; - &nbsp;</span>
         <span>{node.fields.readingTime.text}</span>
       </sub>

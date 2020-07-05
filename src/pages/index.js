@@ -22,9 +22,13 @@ class BlogIndex extends Component {
   render() {
     const { data } = this.props;
     const posts = data.allMarkdownRemark.edges;
+
     return (
       <Layout>
-        <SEO title="All Posts" keywords={[`gatsby`, `blog`, `react`]} />
+        <SEO
+          title="All Posts"
+          keywords={[`f1v`, `blog`, `react`, `javascript`]}
+        />
         <Bio />
         <main>
           <Title>Latest Posts</Title>

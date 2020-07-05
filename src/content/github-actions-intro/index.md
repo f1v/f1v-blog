@@ -1,6 +1,7 @@
 ---
 title: 'Publishing to npm using GitHub Actions'
 date: '2020-06-26'
+author: 'Tim Rybicki'
 ---
 
 ## Introduction
