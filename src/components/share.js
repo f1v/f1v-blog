@@ -37,6 +37,7 @@ class Share extends Component {
   render() {
     const { post } = this.props;
     const { url } = this.state;
+
     return (
       <Container>
         <p

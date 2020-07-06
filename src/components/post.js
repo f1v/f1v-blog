@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
 import StyledLink from '../utils/styled-link';
 import media from '../utils/media';
 
@@ -29,7 +28,7 @@ const Post = ({ node }) => (
     <Container>
       <Title>{node.frontmatter.title}</Title>
       <sub>
-        <span>on {node.frontmatter.date}</span>
+        <span>{node.frontmatter.date}</span>
         <span>&nbsp; - &nbsp;</span>
         <span>{node.fields.readingTime.text}</span>
       </sub>
