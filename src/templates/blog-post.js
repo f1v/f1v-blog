@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { Container, Title, LinkList, Header } from './post-styles';
@@ -8,26 +7,36 @@ import Share from '../components/share';
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark;
-    const siteTitle = this.props.data.site.siteMetadata.title;
-    const { previous, next } = this.props.pageContext;
+    const {
+      data,
+      location,
+      pageContext: { previous, next },
+    } = this.props;
+    const { markdownRemark, site } = data;
+    const {
+      excerpt,
+      frontmatter: { author, date, title },
+    } = markdownRemark;
+    const {
+      siteMetadata: { title: siteTitle },
+    } = site;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <Layout location={location} title={siteTitle}>
+        <SEO title={title} description={excerpt} />
         <Container>
           <Header>
-            <Title>{post.frontmatter.title}</Title>
+            <Title>{title}</Title>
             <sub
               css={`
                 color: rgba(0, 0, 0, 0.8);
               `}
             >
               <span>
-                Posted on {post.frontmatter.date} by {post.frontmatter.author}
+                Posted on {date} by {author}
               </span>
               <span>&nbsp; - &nbsp;</span>
-              <span>{post.fields.readingTime.text}</span>
+              <span>{markdownRemark.fields.readingTime.text}</span>
             </sub>
           </Header>
 
@@ -35,17 +44,16 @@ class BlogPostTemplate extends React.Component {
             css={`
               margin: 5rem 0;
             `}
-            dangerouslySetInnerHTML={{ __html: post.html }}
+            dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
           />
 
           <Share
             post={{
-              title: post.frontmatter.title,
-              excerpt: post.excerpt,
-              author: post.frontmatter.author,
+              title,
+              excerpt,
+              author,
             }}
           />
-
           <LinkList>
             <li>
               {previous && (

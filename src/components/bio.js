@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
-
 import media from '../utils/media';
 import Twitter from '../images/social/twitter.svg';
 
@@ -59,6 +58,7 @@ const Bio = () => (
     query={bioQuery}
     render={(data) => {
       const { author, authorTagline } = data.site.siteMetadata;
+
       return (
         <Container>
           <TextContainer>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-
 import Header from './header';
 import media from '../utils/media';
 
@@ -92,7 +91,7 @@ class Layout extends Component {
             }
           }
         `}
-        render={data => (
+        render={(data) => (
           <>
             <Header title={data.site.siteMetadata.title} />
             <Content>{children}</Content>
