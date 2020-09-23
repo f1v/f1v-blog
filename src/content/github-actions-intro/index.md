@@ -1,10 +1,8 @@
 ---
-title: 'Publishing to npm using GitHub Actions'
+title: 'Publishing to npm Using GitHub Actions'
 date: '2020-06-26'
 author: 'Tim Rybicki'
 ---
-
-## Introduction
 
 GitHub Actions present a great way to automate tasks. In this case, we are setting up a way to update a React component library, [zati](https://github.com/f1v/zati), on the npm registry. The end resulting behavior is the following:
 
@@ -13,7 +11,7 @@ GitHub Actions present a great way to automate tasks. In this case, we are setti
 - A new commit with the release number is created
 - The package is published to npm
 
-## The workflow file
+## The Workflow File
 
 Workflow files are `.yml` files that live in the `.github/workflows` folder. This is the complete workflow file which we will inspect step-by-step.
 
@@ -62,7 +60,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-## The trigger
+## The Trigger
 
 This tells GitHub we want to run this action when a release is published. Note there are many triggers you can substitute, such as push events to master. Reference more triggers [here](https://help.github.com/en/actions/reference/events-that-trigger-workflows).
 
@@ -72,7 +70,7 @@ on:
     types: [published]
 ```
 
-## Setup environment
+## Setup Environment
 
 The first block of steps gets access to our repository files, sets up a node environment, and builds our project. The `yarn build` step can be subsituted with your eqvuialent command to prepare your package.
 
@@ -86,7 +84,7 @@ The first block of steps gets access to our repository files, sets up a node env
 - run: yarn build
 ```
 
-## Get version number
+## Get Version Number
 
 When we create a release on GitHub we enter a version number and we want to re-use that number to match the version number with our npm package. To get this number we use the following command with the `set-output` flag which lets us reference this in other steps as an environment variable.
 
@@ -96,7 +94,7 @@ When we create a release on GitHub we enter a version number and we want to re-u
   id: tag
 ```
 
-## Create commit
+## Create Commit
 
 This step allows us to make a commit in our repository, with the `npm version` command updating our `package.json` version and creating a commit with the version number. The `$GITHUB_ACTOR` variable comes for free. We are also using the version number we saved as a variable above.
 
@@ -110,7 +108,7 @@ This step allows us to make a commit in our repository, with the `npm version` c
     RELEASE_VERSION: ${{ steps.tag.outputs.version }}
 ```
 
-## Configure npm secret
+## Configure npm Secret
 
 We need to create a secret in our GitHub repository using a token generated from npm. This will authenticate us with npm when we reference the token in the next step. To get a token from npm, follow these steps:
 
@@ -137,7 +135,7 @@ This command will push our updated code to the npm registry. Using the `--new-ve
     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 ```
 
-## Push commit to GitHub
+## Push Commit to GitHub
 
 We made a new commit with the version number in a previous step, but we still need to push that update to our repository. Doing this as a last step makes sure this step will only run if the publishing to npm succeeds. The secret `GITHUB_TOKEN`, as well as all three variables in the git url are built-in.
 
@@ -150,6 +148,6 @@ We made a new commit with the version number in a previous step, but we still ne
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-## Further reading
+## Further Reading
 
 Another option to consider for automating releases, is [semantic-release](https://github.com/semantic-release/semantic-release#how-does-it-work). This is even more convenient because it generates release numbers and changelogs automatically. For a walkthrough of setting this up with GitHub Actions, take a look at [this guide](https://github.com/zeke/semantic-release-with-github-actions).
