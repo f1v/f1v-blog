@@ -8,13 +8,13 @@ I recently released my first iPhone app on the App Store - [Tappy Gopher](https:
 
 ## Getting Started
 
-The first thing to note is that Xcode is notoriously a mac-only IDE, and is also the primary and easiest way to code apps using Swift. Assuming you have a mac and Xcode, laying out an app in Swift using storyboards can be very simple. Each basic Swift app that is created will have a Main.Storyboard and a ViewController file. A storyboard is a visual representation of the user interface of an iOS application, showing screens of content and the connections between those screens. In addition, a storyboard enables you to connect a view to its controller object and to manage the transfer of data between view controllers.
+The first thing to note is that Xcode is notoriously a mac-only IDE, and is also the primary and easiest way to code apps using Swift. Assuming you have a mac and Xcode, laying out an app in Swift using storyboards can be very simple. Each basic Swift app that is created will have a `Main.Storyboard` and a ViewController file. A storyboard is a visual representation of the user interface of an iOS application, showing screens of content and the connections between those screens. In addition, a storyboard enables you to connect a view to its controller object and to manage the transfer of data between view controllers.
 
-This Storyboard/Controller setup creates a coding environment that allows you to look at what the app will look like in the Main.Storyboard file and practically drag and drop buttons, images, or any DOM element into your ViewController to create variables! After your UI is connected to a function or variable, a helpful icon by the line number will highlight that element on your storyboard.
+This Storyboard/Controller setup creates a coding environment that allows you to look at what the app will look like in the `Main.Storyboard` file and practically drag and drop buttons, images, or any DOM element into your ViewController to create variables! After your UI is connected to a function or variable, a helpful icon by the line number will highlight that element on your storyboard.
 
 ![](./connecting-button-to-function-swift.png)
 
-You can add elements directly to the Main.Storyboard, as well. Positioning elements is as easy as dragging and dropping them within the storyboard. To make the app responsive across different iOS screen sizes, Xcode also provides the ability to add responsive constraints on each element to control their size and positioning.
+You can add elements directly to the `Main.Storyboard`, as well. Positioning elements is as easy as dragging and dropping them within the storyboard. To make the app responsive across different iOS screen sizes, Xcode also provides the ability to add responsive constraints on each element to control their size and positioning.
 
 ## Coding in Swift
 
@@ -43,7 +43,7 @@ You can add elements directly to the Main.Storyboard, as well. Positioning eleme
   }
 ```
 
-The ViewController should come pre-built with a viewDidLoad lifecycle function. This function is run once the app loads to populate the view and give functionality to the elements. This function is called after the view controller has loaded its view hierarchy into memory. You usually override this method to perform additional initialization on views that were loaded.
+The ViewController should come pre-built with a `viewDidLoad` lifecycle function. This function is run once the app loads to populate the view and give functionality to the elements. This function is called after the view controller has loaded its view hierarchy into memory. You usually override this method to perform additional initialization on views that were loaded.
 
 In the case of Tappy Gopher, I want the users to be able to tap the images of the gophers, hide all the gopher images from view, and display the user's current high score when the app loads.
 
