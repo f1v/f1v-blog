@@ -2,6 +2,7 @@
 title: 'Creating an iOS App with Swift'
 date: '2020-09-26'
 author: 'Kyle Meserve'
+author_site: https://kylemeserve.com/
 ---
 
 I recently released my first iPhone app on the App Store - [Tappy Gopher](https://apps.apple.com/us/app/tappy-gopher/id1497439278). It had been a goal of mine to release an app, but I had always imagined I would use a framework like React Native or Ionic since I am primarily a JavaScript Developer. Instead, on a whim, I decided to work on the app using the iOS native language, Swift. While working on this app, I noticed some benefits of Swift and Xcode (the IDE for macOS). I would highly suggest diving into Swift if you are interested.

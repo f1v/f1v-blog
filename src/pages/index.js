@@ -8,13 +8,17 @@ import Post from '../components/post';
 import media from '../utils/media';
 
 const Title = styled.h3`
-  font-weight: 800;
+  color: var(--color-grey-light);
+  font-weight: 200;
   font-size: 2.6rem;
-  margin: 6rem 0 0;
+  margin: 2rem 0 0;
 
   ${media.phone`
     margin: 3rem 0 0;
   `}
+`;
+const Main = styled.main`
+  margin-top: 5rem;
 `;
 
 class BlogIndex extends Component {
@@ -29,12 +33,12 @@ class BlogIndex extends Component {
           keywords={[`f1v`, `blog`, `react`, `javascript`]}
         />
         <Bio />
-        <main>
+        <Main>
           <Title>Latest Posts</Title>
           {posts.map(({ node }) => {
             return <Post key={node.id} node={node} />;
           })}
-        </main>
+        </Main>
       </Layout>
     );
   }

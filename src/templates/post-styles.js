@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 import media from '../utils/media';
-
+export const Author = styled.span`
+  color: var(--color-yellow);
+`;
 export const Container = styled.article`
   margin-top: 8rem;
 
@@ -55,6 +57,7 @@ export const Header = styled.header`
 `;
 
 export const Title = styled.h1`
+  color: var(--color-yellow);
   margin-bottom: 1rem;
   font-size: 3rem;
 `;
@@ -64,5 +67,14 @@ export const LinkList = styled.ul`
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
-  padding: 0px;
+`;
+
+export const LinkItem = styled.li`
+  padding: 10px 0;
+`;
+
+export const Time = styled.span`
+  background-color: var(--color-yellow);
+  color: var(--color-white);
+  padding: 8px 10px;
 `;

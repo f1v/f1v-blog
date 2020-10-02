@@ -2,6 +2,7 @@
 title: 'The Easiest Way to Use Icons in React'
 date: '2020-09-23'
 author: 'Tim Rybicki'
+author_site: https://timr.dev/
 ---
 
 The [react-icons](https://react-icons.github.io/react-icons/) project provides a developer-friendly way to use thousands of open source icons in any React project. The great thing is that it includes a collection of 20+ different icon sources, including Material Design, Font Awesome, and Bootstrap, all accessible in a single package.

@@ -1,9 +1,18 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { Container, Title, LinkList, Header } from './post-styles';
+import {
+  Author,
+  Container,
+  Title,
+  Time,
+  LinkList,
+  LinkItem,
+  Header,
+} from './post-styles';
 import Share from '../components/share';
+import StyledLink from '../utils/styled-link';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -15,7 +24,7 @@ class BlogPostTemplate extends React.Component {
     const { markdownRemark, site } = data;
     const {
       excerpt,
-      frontmatter: { author, date, title },
+      frontmatter: { author, author_site, date, title },
     } = markdownRemark;
     const {
       siteMetadata: { title: siteTitle },
@@ -27,20 +36,20 @@ class BlogPostTemplate extends React.Component {
         <Container>
           <Header>
             <Title>{title}</Title>
-            <sub
-              css={`
-                color: rgba(0, 0, 0, 0.8);
-              `}
-            >
+            <sub css={``}>
               <span>
-                Posted on {date} by {author}
+                Posted on {date} by{' '}
+                <StyledLink to={author_site}>
+                  <Author>{author}</Author>
+                </StyledLink>
               </span>
-              <span>&nbsp; - &nbsp;</span>
-              <span>{markdownRemark.fields.readingTime.text}</span>
+              <span>&nbsp; &nbsp;</span>
+              <Time>{markdownRemark.fields.readingTime.text}</Time>
             </sub>
           </Header>
 
           <div
+            className="post-content"
             css={`
               margin: 5rem 0;
             `}
@@ -55,20 +64,20 @@ class BlogPostTemplate extends React.Component {
             }}
           />
           <LinkList>
-            <li>
+            <LinkItem>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
+                <StyledLink to={previous.fields.slug} rel="prev">
                   ← {previous.frontmatter.title}
-                </Link>
+                </StyledLink>
               )}
-            </li>
-            <li>
+            </LinkItem>
+            <LinkItem>
               {next && (
-                <Link to={next.fields.slug} rel="next">
+                <StyledLink to={next.fields.slug} rel="next">
                   {next.frontmatter.title} →
-                </Link>
+                </StyledLink>
               )}
-            </li>
+            </LinkItem>
           </LinkList>
         </Container>
       </Layout>
@@ -99,6 +108,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         author
+        author_site
       }
     }
   }

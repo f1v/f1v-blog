@@ -7,6 +7,7 @@ import media from '../utils/media';
 const Container = styled.div`
   padding: 1rem 0;
   margin: 1rem 0;
+  line-height: 1.5;
 
   &:first-child {
     margin-top: 0;
@@ -19,8 +20,15 @@ const Container = styled.div`
 `;
 
 const Title = styled.h4`
-  margin-bottom: 0.2rem;
-  font-size: 2.2rem;
+  color: var(--color-yellow);
+  line-height: initial;
+  margin-bottom: 0;
+`;
+
+const Time = styled.span`
+  background-color: var(--color-yellow);
+  color: var(--color-white);
+  padding: 8px 10px;
 `;
 
 const Post = ({ node }) => (
@@ -29,8 +37,8 @@ const Post = ({ node }) => (
       <Title>{node.frontmatter.title}</Title>
       <sub>
         <span>{node.frontmatter.date}</span>
-        <span>&nbsp; - &nbsp;</span>
-        <span>{node.fields.readingTime.text}</span>
+        <span>&nbsp; &nbsp;</span>
+        <Time>{node.fields.readingTime.text}</Time>
       </sub>
       <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
     </Container>
