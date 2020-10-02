@@ -43,7 +43,6 @@ class Share extends Component {
         <p
           css={`
             font-size: 1.4rem;
-            color: rgb(0, 0, 0);
           `}
         >
           Share if you liked it:

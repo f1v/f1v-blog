@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `F1V Blog`,
-    description: `Company tech blog`,
+    description: `JavaScript consultancy, helping companies accelerate their development.`,
     author: `F1V Development Blog`,
     authorTagline: 'Engineering driven by passion',
     social: {
       twitter: `f1v`,
+      linkedin: `f1v`,
     },
   },
   plugins: [
