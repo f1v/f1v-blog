@@ -1,5 +1,5 @@
 ---
-title: 'Starting a repository from scratch for VsCode (and implementing eslint, prettier, and git!)'
+title: 'Starting a repository from scratch for VSCode (and implementing eslint, prettier, and git!)'
 date: '2020-10-14'
 author: 'David Ko'
 author_site: https://davidholyko.github.io/
@@ -7,13 +7,13 @@ author_site: https://davidholyko.github.io/
 
 ### Prerequisites:
 
-VsCode (Visual Studio Code):
+VSCode (Visual Studio Code):
 
-- [VsCode download](https://code.visualstudio.com/)
+- [VSCode download](https://code.visualstudio.com/)
 
-* [VsCode prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+* [VSCode prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-* [VsCode eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [VSCode eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 Npm (Node Package Manager):
 
@@ -94,7 +94,7 @@ Pick the latest.
 
 ![](./9-eslint-sanity-check.png)
 
-If you have successfully set up eslint with the VsCode eslint extension, there should be highlighting available to warn you of syntax errors.
+If you have successfully set up eslint with the VSCode eslint extension, there should be highlighting available to warn you of syntax errors.
 
 #### Adding eslint rules
 
@@ -122,7 +122,7 @@ git init
 
 ![](./10-git-init.png)
 
-### Settings up workspace settings for VsCode
+### Settings up workspace settings for VSCode
 
 ```bash
 mkdir .vscode
@@ -130,7 +130,7 @@ cd .vscode
 touch settings.json
 ```
 
-Here are my baseline vscode settings.
+Here are my baseline VSCode settings.
 
 - "formatOnSave" auto formats whenever you save.
 - "wordWrapColumn" changes the texting wrapping limit.
