@@ -8,12 +8,12 @@ author_site: https://davidholyko.github.io/
 ### Prerequisites:
 
 VsCode (Visual Studio Code):
-(VsCode download)[https://code.visualstudio.com/]
-(VsCode prettier extension)[https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode]
-(VsCode eslint extension)[https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint]
+[VsCode download](https://code.visualstudio.com/)
+[VsCode prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+[VsCode eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 Npm (Node Package Manager):
-(Npm download(website))[https://nodejs.org/en/]
+[Npm download](https://nodejs.org/en/)
 or with Homebrew:
 
 ```bash
@@ -21,7 +21,7 @@ brew install node
 ```
 
 Git:
-(Git install guide)[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git]
+[Git install guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Setting up a repository
 
@@ -39,6 +39,8 @@ npm init --yes
 touch .prettierrc
 ```
 
+Here is my default prettier config. There are more options available that you can checkout [here](https://prettier.io/docs/en/options.html)
+
 ```json
 {
   "trailingComma": "all",
@@ -55,22 +57,29 @@ touch .prettierrc
 npx eslint --init
 ```
 
-** if npx does not work, you can try installing eslint globalling with `npm i -g eslint` or upgrading node to a version past v5.2.0 **
+Note: if npx does not work, you can try installing eslint globalling with `npm i -g eslint` or upgrading node to a version past v5.2.0
 
 ![](./2-eslint-init.png)
 Choose your use case. I usually pick "To check syntax and find problems"
+
 ![](./3-eslint-modules.png)
 Choose your modules. For react projects, JavaScript modules will work. For node base projects, the CommonJs work. You can get JavaScript modules to work with node base projects with Babel
+
 ![](./4-eslint-frameworks.png)
 Choose your framework. This test repo has no built in framework
+
 ![](./5-eslint-ts.png)
 Choose whether you want TypeScript or plain JavaScript. This test repo uses just JavaScript
+
 ![](./6-eslint-browser-node.png)
 Choose whether you want your project to run on Node or the Browser. This test repo uses Node. React / Vue / Angular projects will use Browser.
+
 ![](./7-eslint-config-file-type.png)
 Choose what kind of file type your eslint config will be. JSON is the most popular but having a config file in JavaScript allows you to add comments.
+
 ![](./8-eslint-latest.png)
-YES
+Pick the latest. Always.
+
 ![](./9-eslint-sanity-check.png)
 If you have successfully set up eslint with the VsCode eslint extension, there should be highlighting available to warn you of syntax errors.
 
@@ -108,8 +117,6 @@ cd .vscode
 touch settings.json
 ```
 
-example settings:
-
 Here are my baseline vscode settings.
 "formatOnSave" auto formats whenever you save.
 "wordWrapColumn" changes the texting wrapping limit.
@@ -121,6 +128,8 @@ Here are my baseline vscode settings.
 }
 ```
 
-### Sanity check: seeing eslint and prettier in action
+### Wrapping up
+
+Once everything is set up, you should be able to see eslint highlighting and prettier formatOnSave do its magic! Auto formatting helps with dealing with projects maintain a specific code format.
 
 ![](./auto-save.gif)
