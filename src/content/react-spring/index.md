@@ -3,6 +3,7 @@ title: 'Introduction to React-Spring Hooks'
 date: '2020-11-19'
 author: 'Nick Marini'
 author_site: https://github.com/nmarini
+repo: https://github.com/nmarini/animated
 ---
 
 The [react-spring](https://www.react-spring.io/) animation library is a spring-physics based animation library. It gives you an array of tools to easily and elegantly create animations.
