@@ -11,8 +11,6 @@ This post is going to specifically focus on the react-spring’s Hook api.
 
 This library presents a more modern approach to animations - it’s physics based instead of relying on css transitions. So animation effects are more in line with real world physics.
 
-react-spring is cross platform, it supports the web, react-native, react-native-web and most other platforms.
-
 ## Why React Springs
 
 react-spring is easy to use and takes a lot less code to create the desired animations. Using react-spring is also a very easy transition given React already utilizes hooks. The react-spring hooks are also very intuitive, allowing a developer to right less code but still achieve a very natural and elegant animation.
@@ -24,8 +22,6 @@ react-spring is easy to use and takes a lot less code to create the desired anim
     - - Friction - spring resistance
     - - Clamp - when true, stops the spring once it overshoots its boundaries
     - - Easing - controls the motion/speed of animation
-    - - Precision
-    - - Velocity
     - - Duration
 
 ## Install the Package
