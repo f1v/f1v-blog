@@ -8,15 +8,15 @@ repo: https://github.com/nmarini/animated
 
 The [react-spring](https://www.react-spring.io/) animation library is a spring-physics based animation library. It gives you an array of tools to easily and elegantly create animations.
 
-This post is going to specifically focus on the react-spring’s Hook api.
+This post is going to specifically focus on the react-spring’s Hook API.
 
 This library presents a more modern approach to animations - it’s physics based instead of relying on css transitions. So animation effects are more in line with real world physics.
 
-## Why React Springs
+## Why React Spring
 
-react-spring is easy to use and takes a lot less code to create the desired animations. Using react-spring is also a very easy transition given React already utilizes hooks. The react-spring hooks are also very intuitive, allowing a developer to right less code but still achieve a very natural and elegant animation.
+react-spring is easy to use and takes a lot less code to create the desired animations. Using react-spring is also a very easy transition given React already utilizes hooks. The react-spring hooks are also very intuitive, allowing a developer to write less code but still achieve a very natural and elegant animation.
 
-- React spring has a Common api that allows you to precisely control the physics of your animation by creating a config object.
+- React spring has a Common API that allows you to precisely control the physics of your animation by creating a config object.
   - Optional properties include:
     - - Mass - spring mass
     - - Tension - spring energetic load
@@ -88,5 +88,5 @@ const AnimatedHeader = styled(animated.h1)`
 
 Learn more about other features that react-spring offers:
 
-- [Render-props api](https://www.react-spring.io/docs/props/spring) - Learn about their Render-prop features instead as an alternative to the [Hooks api](https://www.react-spring.io/docs/hooks/basics)
-- [Common api](https://www.react-spring.io/docs/hooks/api) - Learn about different preset configurations and properties exist in react-spring.
+- [Render-props API](https://www.react-spring.io/docs/props/spring) - Learn about their Render-prop features instead as an alternative to the [Hooks API](https://www.react-spring.io/docs/hooks/basics)
+- [Common API](https://www.react-spring.io/docs/hooks/api) - Learn about different preset configurations and properties exist in react-spring.
