@@ -1,8 +1,8 @@
 ---
 title: 'JavaScript Testing Libraries'
-date: '2020-03-01'
+date: '2021-03-04'
 author: 'Sophie Liu'
-author_site: https://rdeyo.com/
+author_site:
 ---
 
 I recently take charge of testing for a commercial web/mobile app, so I make a brief summary about testing framework for the later developer.
