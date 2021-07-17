@@ -1,5 +1,5 @@
 ---
-title: 'Build a CRUD application on the blockchain'
+title: 'Build a decentralized CRUD application'
 date: '2021-07-15'
 author: 'Alex Tsuji'
 author_site: https://asooge.github.io/
@@ -11,6 +11,7 @@ Blockchain technology today allows developers to create decentralized web applic
 
 - Web Browser
 - Familiarity with object-oriented programming
+- General understanding of <a href='https://docs.soliditylang.org/en/v0.8.6/introduction-to-smart-contracts.html' target='_blank'>Smart Contracts</a>
 
 ## Let's get started
 
@@ -101,7 +102,9 @@ If that explanation didn't make any sense, that's okay. Let's compile and deploy
 
    Try setting the value of `number` to different values. What are the limitations? What happens if you try passing something other than an integer into the `store` function?
 
-6. Now that we have a basic understanding of Solidity and Ethereum Remix, lets write our own CRUD application. In this example, we're going to create a decentralized application for users to produce and share their own beats. Start by renaming our `1_Storage.sol` file to `BeatBox.sol`. Update the name of the contract and remove everything inside.
+## Building the CRUD application
+
+1. Now that we have a basic understanding of Solidity and Ethereum Remix, lets write our own CRUD application. In this example, we're going to create a decentralized application for users to produce and share their own beats. Start by renaming our `1_Storage.sol` file to `BeatBox.sol`. Update the name of the contract and remove everything inside.
 
    ```sol
     // SPDX-License-Identifier: GPL-3.0
@@ -112,9 +115,9 @@ If that explanation didn't make any sense, that's okay. Let's compile and deploy
       }
    ```
 
-   Now let's start by defining our User model. In Solidity we do this with a <a href='https://docs.soliditylang.org/en/v0.4.24/structure-of-a-contract.html#struct-types' target='_blank'>struct</a>
+   Now let's start by defining our User model. In Solidity we do this with a <a href='https://docs.soliditylang.org/en/v0.8.6/structure-of-a-contract.html#struct-types' target='_blank'>struct</a>
 
-   When defining a struct, all you need to do is define the data type, and then give it a name. We are going to use types <a href='https://docs.soliditylang.org/en/v0.4.24/types.html#address' target='_blank'>address</a>, <a href='https://docs.soliditylang.org/en/v0.4.24/types.html#integers' target='_blank'>uint</a>, <a href='https://docs.soliditylang.org/en/v0.4.24/types.html#string' target='_blank'>string</a>, and <a href='https://docs.soliditylang.org/en/v0.4.24/types.html#fixed-size-byte-arrays' target='_blank'>bytes32[]</a>
+   When defining a struct, all you need to do is define the data type, and then give it a name. We are going to use types <a href='https://docs.soliditylang.org/en/v0.8.6/types.html#address' target='_blank'>address</a>, <a href='https://docs.soliditylang.org/en/v0.8.6/types.html#integers' target='_blank'>uint</a>, <a href='https://docs.soliditylang.org/en/v0.8.6/types.html#string' target='_blank'>string</a>, and <a href='https://docs.soliditylang.org/en/v0.8.6/types.html#fixed-size-byte-arrays' target='_blank'>bytes32[]</a>
 
 ```sol
   struct User {
@@ -125,7 +128,7 @@ If that explanation didn't make any sense, that's okay. Let's compile and deploy
     }
 ```
 
-Next, we are going to store our User data in a <a href='https://docs.soliditylang.org/en/v0.4.24/types.html#mappings' target='_blank'>mapping</a>. In some ways mapping is analogous to a Table in a traditional SQL database. We can retrieve data on our User model by using a unique id or key. In this case, we are going to use the User address as the unique id. The name of our mapping will be called `userMap`
+Next, we are going to store our User data in a <a href='https://docs.soliditylang.org/en/v0.8.6/types.html#mappings' target='_blank'>mapping</a>. In some ways mapping is analogous to a Table in a traditional SQL database. We can retrieve data on our User model by using a unique id or key. In this case, we are going to use the User address as the unique id. The name of our mapping will be called `userMap`
 
 ```sol
   mapping (address => User) userMap;
@@ -155,7 +158,7 @@ All together, our contract looks like this so far:
   }
 ```
 
-7. Now lets create a function to create a User. This function will accept 1 argument of type string. We will store this argument in <a href='https://docs.soliditylang.org/en/v0.4.24/types.html#reference-types' target='_blank'>memory</a> versus storage and call the argument `_username`. This function is public meaning anyone can call on this function and create a User in this contract.
+2. Now lets create a function to create a User. This function will accept 1 argument of type string. We will store this argument in <a href='https://docs.soliditylang.org/en/v0.8.6/types.html#reference-types' target='_blank'>memory</a> versus storage and call with the argument `_username`. This function is public meaning anyone can call on this function and create a User in this contract.
 
    ```sol
    function createUser(string memory _username) public {
@@ -190,7 +193,7 @@ All together, our contract looks like this so far:
 
    in this way, our user `id`'s will be auto-incrementing because each user that's created will add an index to our `userIndex` array.
 
-1. Now let's create a function to get all our Users. This function is also public, designated as `view` because it does not mutate data in the contract, and returns a User array stored in memory.
+3. Now let's create a function to get all our Users. This function is also public, designated as `view` because it does not mutate data in the contract, and returns a User array stored in memory.
 
    ```sol
     function getUsers() public view returns (User[] memory) {
@@ -230,11 +233,11 @@ All together, our contract looks like this so far:
     }
    ```
 
-1. Now that we have our `createUser` and `getUsers` functions, let's see if they work? Compile and deploy and create a user. Make sure you pass in data of type string, for example `'test'`
+4. Now that we have our `createUser` and `getUsers` functions, let's see if they work? Compile and deploy and create a user. Make sure you pass in data of type string, for example `'test'`
 
 Now call on `getUsers` and you should get a response like this:
 
-```
+```bash
   0: tuple(address,uint256,string,bytes32[])[]: 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,0,'test',
 ```
 
@@ -251,7 +254,32 @@ this may be a bit difficult to read in this format, but you can see our User dat
 ];
 ```
 
-10. Now let's create a function to update our user. This will be similiar to `createUser` but instead of creating a new User struct, we can simply identify the correct User, and update the neccessary data.
+5. As you can see, the user id is 0 because they are the first user in our userIndex (index 0). If we want to start with index 1, we can create an initial user for the developer using the `constructor`:
+
+First, let's save the value of the developer address so we can use this in the future:
+
+```sol
+  address payable _devAddress;
+```
+
+Next, lets write the code for the constructor:
+
+```sol
+  constructor() {
+      _devAddress = payable(msg.sender);
+      userMap[msg.sender] = User({
+          wallet: msg.sender,
+          id: userIndex.length,
+          username: 'developer',
+          sequences: new bytes32[](0)
+      });
+      userIndex.push(msg.sender);
+  }
+```
+
+this code will run only once, on deployment and the value of `msg.sender` will be the address of the deployer. We can save this address to our `_devAddress` so we can transfer funds to this address in the future. Also we are creating a user for the developer that will take index 0. This way our users will start with index 1. This can be helpful in validating if a wallet is an existing user.
+
+6. Now let's create a function to update our user. This will be similiar to `createUser` but instead of creating a new User struct, we can simply identify the correct User, and update the neccessary data.
 
 ```sol
   function updateUser(string memory _username) public {
@@ -268,13 +296,13 @@ Access the correct User and save it to storage as `_user`. Since we will be muta
 Finally, we can simply update the username with the argument provided:
 
 ```sol
- _user.username = _username;
+_user.username = _username;
 ```
 
 The completed function looks like this:
 
 ```sol
-  `function updateUser(string memory _username) public {
+  function updateUser(string memory _username) public {
       User storage _user = userMap[msg.sender];
       _user.username = _username;
   }
@@ -282,43 +310,44 @@ The completed function looks like this:
 
 Compile and deploy to make sure all our functions are working as intended.
 
-11. Now that we have our User model setup with create, read, and update functionality, lets create our Sequence Model. Sequence will contain all our instrument tracks. We can follow the same pattern for our Sequence Model.
+7. Now that we have our User model setup with create, read, and update functionality, lets create our Sequence Model. Sequence will contain all our instrument tracks. We can follow the same pattern for our Sequence Model.
 
 ```sol
- struct Sequence {
-     bytes32 id;
-     string name;
-     bytes32[] modules;
-     uint createdAt;
-     uint updatedAt;
- }
- mapping (bytes32 => Sequence) sequenceMap;
- bytes32[] sequenceIndex;
+struct Sequence {
+    bytes32 id;
+    address owner;
+    string name;
+    bytes32[] modules;
+    uint createdAt;
+    uint updatedAt;
+}
+mapping (bytes32 => Sequence) sequenceMap;
+bytes32[] sequenceIndex;
 ```
 
 Only difference here is we are using `bytes32` for our Sequence id so our mapping will map bytes32 to Sequence. We will use a hash function, <a href='https://solidity-by-example.org/hashing/' target='_blank'>keccak256</a> to generate our ids.
 
-12. Function for `createSequence`
+8. Function for `createSequence`
 
 ```sol
- function createSequence(string memory _name) public {
-     User storage _user = userMap[msg.sender];
-     bytes32 sequenceId = keccak256(abi.encodePacked(msg.sender, block.timestamp, _name));
-     sequenceMap[sequenceId] = Sequence({
-         id: sequenceId,
-         name: _name,
-         createdAt: block.timestamp,
-         updatedAt: block.timestamp,
-         modules: new bytes32[](0)
-     });
-     sequenceIndex.push(sequenceId);
-     _user.sequences.push(sequenceId);
- }
+function createSequence(string memory _name) public {
+    User storage _user = userMap[msg.sender];
+    bytes32 sequenceId = keccak256(abi.encodePacked(msg.sender, block.timestamp, _name));
+    sequenceMap[sequenceId] = Sequence({
+        id: sequenceId,
+        name: _name,
+        createdAt: block.timestamp,
+        updatedAt: block.timestamp,
+        modules: new bytes32[](0)
+    });
+    sequenceIndex.push(sequenceId);
+    _user.sequences.push(sequenceId);
+}
 ```
 
 Here, we are pushing the `sequenceId` to the `sequenceIndex` as well as the User's `sequences` array so the User will keep a reference to the sequence.
 
-13. Function for `getAllSequences` - following the same pattern as `getUsers`
+9. Function for `getAllSequences` - following the same pattern as `getUsers`
 
 ```sol
   function getAllSequences() public view returns (Sequence[] memory) {
@@ -330,7 +359,7 @@ Here, we are pushing the `sequenceId` to the `sequenceIndex` as well as the User
   }
 ```
 
-14. Function for `getUserSequences` - same as `getAllSequences` but only for User sequences:
+10. Function for `getUserSequences` - same as `getAllSequences` but only for User sequences:
 
 ```sol
   function getUserSequences() public view returns (Sequence[] memory) {
@@ -343,7 +372,7 @@ Here, we are pushing the `sequenceId` to the `sequenceIndex` as well as the User
   }
 ```
 
-15. Finally, lets create our Module Model this will be our instrument track:
+11. Finally, lets create our Module Model this will be our instrument track:
 
 ```sol
   struct Module {
@@ -360,7 +389,7 @@ Here, we are pushing the `sequenceId` to the `sequenceIndex` as well as the User
   bytes32[] moduleIndex;
 ```
 
-16. Function for `createModule`
+12. Function for `createModule`
 
 ```sol
   function createModule(bytes32 _sequenceId, string memory _instrument, bool _beat_1, bool _beat_2, bool _beat_3, bool _beat_4) public {
@@ -380,7 +409,7 @@ Here, we are pushing the `sequenceId` to the `sequenceIndex` as well as the User
   }
 ```
 
-17. Function for `getSequenceModules`
+13. Function for `getSequenceModules`
 
 ```sol
   function getSequenceModules(bytes32 _sequenceId) public view returns (Module[] memory) {
@@ -393,6 +422,19 @@ Here, we are pushing the `sequenceId` to the `sequenceIndex` as well as the User
   }
 ```
 
+14. Finally, just for fun let's create a function for users to "buy me a coffee" if they want to support the developer.
+
+```sol
+  function buyMeACoffee() public payable {
+      uint contribution = msg.value;
+      _devAddress.transfer(contribution);
+  }
+```
+
+This function takes the value of the funds sent (msg.value) and transfers it to the `_devAddress` anyone can call on this function to send funds to the developer so the function is designated `public` and `payable`
+
 ## Next steps
 
-18. Now we have the beginning of an application capable of creating, reading and updating data on the blockchain. Give it a try, experiment, modify for your own applications. This example hopefully is a good introduction to smart contract development but really only scratches the surface. Some key concepts that were not included is validating function calls with `assert` and `require` you can read about that <a href='https://docs.soliditylang.org/en/v0.4.24/control-structures.html#error-handling-assert-require-revert-and-exceptions' target='_blank'>here</a>, and emitting events which you can read about <a href='https://docs.soliditylang.org/en/v0.4.21/contracts.html#events' target='_blank'>here</a>
+1. Example repository can be seen <a href='https://github.com/asooge/BeatBox' target='_blank'>here</a>
+
+2. Now we have the beginning of an application capable of creating, reading and updating data on the blockchain. Give it a try, experiment, modify for your own applications. This example hopefully is a good introduction to smart contract development but really only scratches the surface. Some key concepts that were not included is validating function calls with `assert` and `require` you can read about that <a href='https://docs.soliditylang.org/en/v0.8.6/control-structures.html#error-handling-assert-require-revert-and-exceptions' target='_blank'>here</a>, and emitting events which you can read about <a href='https://docs.soliditylang.org/en/v0.8.6/contracts.html#events' target='_blank'>here</a>
