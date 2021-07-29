@@ -51,10 +51,10 @@ When the server has booted you can access your application at `http://localhost:
 
 ## Usage:
 
-React 360 gives you access to a number of familiar components (if you have React Native experience) and some new components to help develop a 3D environment on the web.
+React 360 gives you access to a number of familiar components (if you have React Native experience) and some new components and methods to help develop a 3D environment on the web.
 
 - `AppRegistry` - Allows us to connect components from the `index.js` file to the `client.js` file in order to display your code. React separated the runtime in order to make the code run quicker and more efficiently as it already takes lots of CPU.
-- `asset` - In order to reference any resource in your `static_assets` file you need to use this method.
+- `asset` - In order to reference any resource in your `static_assets` folder you need to use this method.
 - `View` - Allows developers to create a 2D surface and also functions as a `div` container.
 - `Text` - Allows text to be added into 3D space, and is typically nested inside of a `View` component.
 - `Animated` - Makes it possible to toggle the size, position, and appearance of elements in your scene in a declarative style that fits into React.
