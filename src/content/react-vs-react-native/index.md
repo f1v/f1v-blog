@@ -5,7 +5,7 @@ author: 'Tim Rybicki'
 author_site: https://timr.dev/
 ---
 
-If you are a React developer you may have considered using React Native which is one of the most popular choices for creating cross-platform mobile apps. Let's look at how the developer experience for React Native compares to React.js.
+If you are a React developer you may have considered using React Native, one of the most popular frameworks for creating cross-platform mobile apps. Let's look at how the developer experience for React Native compares to React.js.
 
 ## Some key differences
 
@@ -19,13 +19,13 @@ If you are a React developer you may have considered using React Native which is
 
 <u>No more inspect element tool</u> - Because we don't have all the fancy devtools of the browser, debugging can be harder, especially without the inspect element tool to debug styling. However, there are still many debugging options that cover most areas.
 
-<u>Web component libraries won't work</u> - Your favorite component library in the web will not work in React Native, since the web uses HTML that won't work in React Native. The component library I landed on is React Native Elements but there are other options too.
+<u>Web component libraries won't work</u> - Your favorite component library in the web will not work in React Native, since the web uses HTML that won't work in React Native. The component library I landed on is React Native Elements but there are mulitple options.
 
 ## Some things are the same
 
 <u>react-router-native exists</u> - If you want to continue to use a routing framework similar to React.js, you'll be happy to know `react-router` has a native version that works the same way.
 
-<u>You can also use styled-components</u> - If you're used to using styled-components you can install it and use it in the same way. However, using React Native's StyleSheet, the standard way to add styling in React Native, might be easier in many cases.
+<u>You can also use styled-components</u> - If you're used to using styled-components you can use it in the same way. However, using React Native's StyleSheet, the standard way to add styling in React Native, might be easier in many cases.
 
 ## Conclusion
 
