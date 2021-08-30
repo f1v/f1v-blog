@@ -14,7 +14,7 @@ React 360 is a great way for developers new to VR to get an introductory experie
 
 ## Install
 
-Before install. you'll need:
+Before install, you'll need:
 
 - Node.js version 6.0.0 of higher
 - `yarn` or `npm` (>=v3.0.0) package manager
@@ -22,19 +22,19 @@ Before install. you'll need:
 Next, install the React 360 CLI – a command-line tool that generates the basic layout of new projects.
 
 ```bash
-# npm i -g react-360-cli
+npm i -g react-360-cli
 ```
 
 Or
 
 ```bash
-# yarn global add react-360-cli
+yarn global add react-360-cli
 ```
 
 Once installed, the CLI can be used to generate a new project:
 
 ```bash
-# react-360 init PROJECT_NAME
+react-360 init PROJECT_NAME
 ```
 
 PROJECT_NAME represents the name of your new application.
@@ -44,7 +44,7 @@ When the server has booted you can access your application at `http://localhost:
 
 ## Important files/folders:
 
-- `index.js` - Where the main code of you application exists, and contain imports that will determine what your application displays.
+- `index.js` - Where the main code of you application exists, and contains imports that will determine what your application displays.
 - `client.js` - This file is the Runtime that connects your browser to the React application. The code in this file will create a new React 360 instance, load your React code and attach it to a specific place in the DOM.
 - `index.html` - The webpage that you will be loading. This will point to the JavaScript code to mount your application.
 - `static_assets` - This folder is used to store your application's resources, including images, audio files, 3D objects, and more.
@@ -60,7 +60,7 @@ React 360 gives you access to a number of familiar components (if you have React
 - `Animated` - Makes it possible to toggle the size, position, and appearance of elements in your scene in a declarative style that fits into React.
 - `Entity` - Allows you to display 3D objects in your environment.
   -- _Note on Entity_-- React 360 does have an `Entity` component but it does not actually work, so most documentation states that you should actually import `Entity` from Entity instead of React 360.
-- `VrButton` - Since the environemnt is represented differently compared to your typical webpage you are not able to interact with the elements on the site like you typically would. React-360 provides the `VrButton` component that is a utility class that detects click-type actions across a variety of input devices.
+- `VrButton` - Since the environment is represented differently compared to your typical webpage you are not able to interact with the elements on the site like you typically would. React-360 provides the `VrButton` component that is a utility class that detects click-type actions across a variety of input devices.
 - `NativeModules` - provide the ability for React code to call back into your runtime, and provide functionality that's only available in the main browser environment. Examples include storing values between loads, requesting information about connected controllers, or manipulating the rendered environment.
 
 # Example:
