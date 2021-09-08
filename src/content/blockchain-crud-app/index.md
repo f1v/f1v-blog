@@ -201,7 +201,7 @@ All together, our contract looks like this so far:
     }
    ```
 
-   again, this function doesn't currently do anything, so let's start by saving an empty User array to memory and store it in a variable called `_users`. When creating a new array in Solidity, you must define the length of an array, which in this case we want to be the number of users in our `userIndex` array, so we can use `userIndex.length`:
+   Again, this function doesn't currently do anything, so let's start by saving an empty User array to memory and store it in a variable called `_users`. When creating a new array in Solidity, you must define the length of an array, which in this case we want to be the number of users in our `userIndex` array, so we can use `userIndex.length`:
 
    ```sol
     User[] memory _users = new User[](userIndex.length);
@@ -241,7 +241,7 @@ Now call on `getUsers` and you should get a response like this:
   0: tuple(address,uint256,string,bytes32[])[]: 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,0,'test',
 ```
 
-this may be a bit difficult to read in this format, but you can see our User data is all there. The first argument will be the address of the wallet you are using in Remix so it will not match the example. When calling this function from a frontend, the data will be structured as an array of objects so it will be easy to work with:
+This may be a bit difficult to read in this format, but you can see our User data is all there. The first argument will be the address of the wallet you are using in Remix so it will not match the example. When calling this function from a frontend, the data will be structured as an array of objects so it will be easy to work with:
 
 ```js
 [
@@ -277,7 +277,7 @@ Next, lets write the code for the constructor:
   }
 ```
 
-this code will run only once, on deployment and the value of `msg.sender` will be the address of the deployer. We can save this address to our `_devAddress` so we can transfer funds to this address in the future. Also we are creating a user for the developer that will take index 0. This way our users will start with index 1. This can be helpful in validating if a wallet is an existing user.
+This code will run only once, on deployment and the value of `msg.sender` will be the address of the deployer. We can save this address to our `_devAddress` so we can transfer funds to this address in the future. Also we are creating a user for the developer that will take index 0. This way our users will start with index 1. This can be helpful in validating if a wallet is an existing user.
 
 6. Now let's create a function to update our user. This will be similiar to `createUser` but instead of creating a new User struct, we can simply identify the correct User, and update the neccessary data.
 
